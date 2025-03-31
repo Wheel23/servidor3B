@@ -4,6 +4,9 @@ const {soma} = require('./teste')
 const PORT = 8000
 
 const server = http.createServer((req, res) => {
+    const urlCapturada = url.parse(req.url,true)
+    const {query} = urlCapturada
+    console.log(query)
    let valores = req.url.replace('/', '').replace('?','').split('&') 
    let parametros = {}
    for(item in valores){
