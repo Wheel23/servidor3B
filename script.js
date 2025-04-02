@@ -1,6 +1,6 @@
 const http = require('http')
 const url = require('url')
-const {soma, subtracao} = require('./teste')
+const {soma, subtracao, divisao, multiplicacao} = require('./teste')
 const path = require('path')
 
 
@@ -12,13 +12,18 @@ const server = http.createServer((req, res) => {
     let resultado = 0
     if(pathname == '/soma'){
         resultado = soma(Number(query.a), Number(query.b))
-        
-      
     }else if(pathname == '/subtracao'){
         resultado = subtracao(Number(query.a), Number(query.b))
-    }
-    res.end(`O valor final e ${resultado}`)
+    }else if(pathname == '/divisao'){
+        resultado = divisao(Number(query.a), Number(query.b))
+   }else if(pathname == '/multiplicacao'){
+    resultado = multiplicacao(Number(query.a), Number(query.b))
+   }else{
+    res.statusCode = 404
+    res.end('Pagina nao encontrada')
    }
+   res.end(`O valor final e ${resultado}`)
+}
    )
    
 
