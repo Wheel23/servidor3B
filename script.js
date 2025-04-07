@@ -2,6 +2,7 @@ const express = require('express');
 const server = express()
 
 
+
 server.get('/soma', (req,res) => {
     resultado = soma(Number(req.query.a), Number( req.query.b))
     res.send(`O resultado da soma é: ${resultado}`)
@@ -35,3 +36,4 @@ const PORT = 8000
 server.listen(PORT, () => {
     console.log(` o servidor foi inicializado na porta ${PORT}`)
 })
+
