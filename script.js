@@ -3,7 +3,7 @@ const server = express()
 
 
 server.get('/soma', (req,res) => {
-    resultado = soma(req.query.a, req.query.b)
+    resultado = soma(Number(req.query.a), Number( req.query.b))
     res.send(`O resultado da soma é: ${resultado}`)
 })
 
